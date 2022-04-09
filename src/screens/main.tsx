@@ -19,7 +19,7 @@ const MainScreen = () => {
       flex={1}
     >
       <VStack space={5} alignItems="center">
-        <Box w="100px" h="100px">
+        <Box w="150px" h="100px">
           {/* <Pressable onPress={handlePressCheckBox}> */}
           {/* <AnimatedCheckBox checked={checked} /> */}
           <TaskItem isDone={checked} onToggleCheckbox={handlePressCheckBox} />
