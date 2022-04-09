@@ -1,4 +1,4 @@
-import React, { useEffect, memo } from 'react'
+import React, { useEffect } from 'react'
 import Animated, {
   Easing,
   useSharedValue,
@@ -21,13 +21,16 @@ const AnimatedPath = Animated.createAnimatedComponent(Path)
 
 interface Props {
   checked?: boolean
+  checkmarkColor: string
+  highlightColor: string
+  boxOutlineColor: string
 }
 
 const AnimatedCheckBox = (props: Props) => {
-  const { checked } = props
-  const checkmarkColor = '#ffffff'
-  const highlightColor = '#4444ff'
-  const boxOutlineColor = '#000000'
+  const { checked, checkmarkColor, highlightColor, boxOutlineColor } = props
+  // const checkmarkColor = '#ffffff'
+  // const highlightColor = '#4444ff'
+  // const boxOutlineColor = '#000000'
 
   const progress = useSharedValue(0)
 
@@ -59,8 +62,6 @@ const AnimatedCheckBox = (props: Props) => {
 
   return (
     <Svg
-      // viewBox="0 0 1024 1024"
-      //   style={{ width: '1em', height: '1em' }}
       viewBox={[-MARGIN, -MARGIN, vWidth + MARGIN, vHeight + MARGIN].join(' ')}
     >
       <Defs>
@@ -83,7 +84,6 @@ const AnimatedCheckBox = (props: Props) => {
         strokeLinecap="round"
         strokeOpacity={checked || false ? 1 : 0}
       />
-      {/* <Path d={outlineBoxPath} stroke="black" /> */}
       <AnimatedPath
         d={outlineBoxPath}
         strokeWidth={7}
@@ -91,7 +91,6 @@ const AnimatedCheckBox = (props: Props) => {
         strokeLinecap="round"
         animatedProps={animatedBoxProps}
       />
-      {/* <Path d={checkMarkPath} stroke="black" /> */}
       <G clipPath="url(#clipPath)">
         <AnimatedStroke
           progress={progress}
