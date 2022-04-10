@@ -14,11 +14,14 @@ const MainScreen = () => {
     <Center
       _dark={{ bg: 'blueGray.900' }}
       _light={{ bg: 'blueGray.100' }}
-      px={4}
       flex={1}
     >
       <VStack space={5} alignItems="center" w="full">
-        <TaskItem isDone={checked} onToggleCheckbox={handlePressCheckBox} />
+        <TaskItem
+          isDone={checked}
+          onToggleCheckbox={handlePressCheckBox}
+          subject="Task Item"
+        />
         <ThemeToggle />
       </VStack>
     </Center>
